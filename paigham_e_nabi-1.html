@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paigham-e-Nabi ﷺ</title>
+<style>
+:root{--wine:#842653;--pink:#f8e2ed;--pale:#fff5f9;--text:#382b33;--line:#ead0dc}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--pale);color:var(--text);font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.7}
+header{background:#fff;text-align:center;padding:22px 14px 18px;border-bottom:1px solid var(--line)}.brand{font-size:clamp(25px,5vw,38px);font-weight:bold;color:var(--wine);margin:0}.tagline{color:var(--wine);letter-spacing:3px;margin:0 0 18px;font-size:13px}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px}nav a{color:#75445d;text-decoration:none;font-size:17px;padding:5px}nav a:hover{color:var(--wine);text-decoration:underline}
+main{max-width:950px;margin:auto;padding:22px 16px 45px}.hero,.intro,.notice,.topic-card,.detail{border:1px solid var(--line);border-radius:28px;padding:26px;background:#fff;box-shadow:0 4px 18px #8426530b}.hero{text-align:center;background:linear-gradient(145deg,#fff7fb,#f5d6e6);padding:34px 24px;margin-bottom:32px}.eyebrow{font-weight:bold;color:var(--wine);letter-spacing:2px}.hero h1{font-size:clamp(30px,7vw,46px);color:var(--wine);line-height:1.2;margin:12px 0}.hero p{font-size:20px;margin:14px auto 22px;max-width:700px}.button{display:inline-block;background:var(--wine);color:white;border:0;border-radius:30px;padding:12px 25px;text-decoration:none;font-weight:bold;font-family:inherit;font-size:17px;cursor:pointer}
+section{margin:30px 0}.section-title{text-align:center;color:var(--wine);font-size:clamp(28px,6vw,38px);margin:0}.section-sub{text-align:center;color:#79596a;margin:4px 0 20px}.search{width:100%;padding:15px 18px;border:1px solid var(--line);border-radius:20px;font:inherit;background:white;margin:0 0 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.topic-card{cursor:pointer;text-align:center;transition:transform .15s,box-shadow .15s}.topic-card:hover{transform:translateY(-3px);box-shadow:0 8px 22px #84265318}.topic-card .emoji{font-size:35px}.topic-card h3{color:var(--wine);font-size:23px;margin:6px 0}.topic-card p{margin:0;color:#725a67}.notice{background:var(--pink);margin-top:28px}.notice h2,.intro h2{color:var(--wine);margin-top:0}.notice p,.intro p{margin-bottom:0}.detail{padding:28px;margin:30px 0}.detail h2{color:var(--wine);font-size:32px;margin:22px 0}.detail h3{color:var(--wine);font-size:24px}.back{background:var(--pink);color:var(--wine);margin-bottom:8px}.note{border-left:5px solid #b44d83;background:#fff4f9;padding:16px 18px;border-radius:14px;margin-top:20px}.hidden{display:none!important}
+footer{background:var(--wine);color:#fff;text-align:center;padding:28px 15px;margin-top:20px}footer h2{font-size:25px;margin:0}footer p{margin:5px 0}footer .small{font-size:15px;opacity:.9}
+@media(min-width:700px){body{font-size:20px}.hero{padding:48px 30px}.topic-card{padding:24px}}
+</style>
+</head>
+<body>
+<header id="home">
+  <p class="brand">Paigham-e-Nabi ﷺ</p>
+  <p class="tagline">DEEN • SUNNAT • HIDAYAT</p>
+  <nav aria-label="Main navigation">
+    <a href="#home" onclick="showHome()">Home</a>
+    <a href="#topics" onclick="openTopic('hadith')">Hadith</a>
+    <a href="#topics" onclick="openTopic('sunnat')">Sunnat</a>
+    <a href="#topics" onclick="openTopic('dua')">Duaein</a>
+    <a href="#topics" onclick="openTopic('quran')">Qur’an</a>
+    <a href="#topics" onclick="openTopic('namaz')">Namaz</a>
+    <a href="#topics" onclick="openTopic('yaad')">Yaad-Dihani</a>
+  </nav>
+</header>
+<main>
+  <div id="homeContent">
+    <section class="hero">
+      <div class="eyebrow">ILM • AMAL • AKHLAQ</div>
+      <h1>Paigham-e-Nabi ﷺ</h1>
+      <p>Deen ki baatein, ilm aur amal — aaiye Qur’an aur Sunnat ki roshni mein apni zindagi ko behtar banane ki koshish karein.</p>
+      <a class="button" href="#topics">Shuru Karein ↓</a>
+    </section>
+    <section id="topics">
+      <h2 class="section-title">Deeni Maloomat</h2>
+      <p class="section-sub">Apni pasand ka mauzu chunein</p>
+      <input class="search" id="topicSearch" type="search" placeholder="Mauzu search karein..." oninput="filterTopics()" aria-label="Mauzu search karein">
+      <div class="grid" id="topicGrid">
+        <article class="topic-card" data-title="quran qur'an tilawat" onclick="openTopic('quran')"><div class="emoji">📖</div><h3>Qur’an</h3><p>Tilawat, samajh aur adab</p></article>
+        <article class="topic-card" data-title="hadith hadees" onclick="openTopic('hadith')"><div class="emoji">📚</div><h3>Hadith</h3><p>Nabi ﷺ ki taleemat</p></article>
+        <article class="topic-card" data-title="sunnat" onclick="openTopic('sunnat')"><div class="emoji">🌙</div><h3>Sunnat</h3><p>Rozmarrah ki sunnatein</p></article>
+        <article class="topic-card" data-title="dua duaein" onclick="openTopic('dua')"><div class="emoji">🤲</div><h3>Duaein</h3><p>Dua ke adab aur ahmiyat</p></article>
+        <article class="topic-card" data-title="namaz salah" onclick="openTopic('namaz')"><div class="emoji">🕌</div><h3>Namaz</h3><p>Namaz ki ahmiyat</p></article>
+        <article class="topic-card" data-title="akhlaq adab" onclick="openTopic('akhlaq')"><div class="emoji">💗</div><h3>Akhlaq</h3><p>Achhe akhlaq apnayein</p></article>
+        <article class="topic-card" data-title="ilm knowledge" onclick="openTopic('ilm')"><div class="emoji">✍️</div><h3>Ilm</h3><p>Deeni ilm hasil karna</p></article>
+        <article class="topic-card" data-title="yaad dihni reminder" onclick="openTopic('yaad')"><div class="emoji">✨</div><h3>Yaad-Dihani</h3><p>Roz ki chhoti naseehat</p></article>
+      </div>
+      <p id="noResults" class="hidden">Koi mauzu nahi mila. Doosra lafz search karein.</p>
+    </section>
+    <section class="intro">
+      <h2>Hamari Koshish</h2><p>Is website ka maqsad deeni maloomat ko aasaan andaaz mein pesh karna aur ilm hasil karne ki taraf raghib karna hai.</p>
+    </section>
+    <section class="notice"><h2>Ek Zaroori Baat</h2><p>Deen ka ilm bharosemand ulama aur sahih hawalon se hasil karein. Jo ilm seekhein, us par ikhlaas ke saath amal karne ki koshish karein.</p></section>
+  </div>
+
+  <section id="detailView" class="detail hidden" aria-live="polite">
+    <button class="button back" onclick="showHome()">← Wapas</button>
+    <div id="detailContent"></div>
+  </section>
+</main>
+<footer>
+  <h2>Paigham-e-Nabi ﷺ ki peshkash</h2>
+  <p>Nusrat Fatima Anak Khan ki taraf se</p>
+  <p class="small">Ilm hasil karein • Amal ki koshish karein • Akhlaq sanwarein</p>
+  <p class="small">© 2026 Paigham-e-Nabi ﷺ</p>
+</footer>
+<script>
+const topics={
+ quran:{title:"Qur’an",body:`<p>Qur’an Majeed Allah Ta’ala ki kitab hai, jo Nabi Muhammad ﷺ par nazil hui. Iski tilawat karein, tarjuma samjhein aur iski taleemaat par amal karne ki koshish karein.</p><ul><li>Tilawat ke liye rozana waqt muqarrar karein.</li><li>Tarjuma aur tafseer bharosemand zariye se parhein.</li><li>Qur’an ko adab aur ehtiram ke saath rakhein.</li></ul><div class="note">Qur’ani ayat ya tafseer share karne se pehle mustanad hawala zaroor tasdeeq karein.</div>`},
+ hadith:{title:"Hadith",body:`<p>Hadith mein Nabi Muhammad ﷺ ke aqwaal, aamaal aur taqreer ka zikr hota hai. Hadith se humein Nabi ﷺ ki taleemaat aur Sunnat ko samajhne mein madad milti hai.</p><div class="note">Hadith ko parhte waqt uska sahih hawala aur darja dekhna zaroori hai. Bina tasdeeq ke riwayat share na karein.</div>`},
+ sunnat:{title:"Sunnat",body:`<p>Sunnat se murad Nabi Muhammad ﷺ ka tareeqa aur aapki taleemaat hain. Muslim apni zindagi mein Sunnat seekhne aur us par amal karne ki koshish karta hai.</p><ul><li>Achhe akhlaq ikhtiyar karna.</li><li>Salam ko aam karna.</li><li>Narmi aur rehmat se pesh aana.</li><li>Safai aur taharat ka ehtimam karna.</li></ul>`},
+ dua:{title:"Duaein",body:`<p>Dua Allah Ta’ala se maangne aur apni zaroorat bayan karne ka zariya hai. Har haal mein Allah se dua karein.</p><h3>Dua ke adab</h3><ul><li>Allah ki hamd-o-sana karein.</li><li>Nabi ﷺ par durood bhejein.</li><li>Ikhlaas aur yaqeen ke saath dua karein.</li><li>Apne liye aur dusron ke liye khair maangein.</li></ul><div class="note">Masnoon duaon ko unke mustanad hawalon ke saath baad mein mazeed shamil kiya ja sakta hai.</div>`},
+ namaz:{title:"Namaz",body:`<p>Namaz Islam ki aham ibadat hai. Namaz ki pabandi ki koshish karein aur iske masail sahih tareeqe se seekhein.</p><ul><li>Namaz ke auqat ka khayal rakhein.</li><li>Wuzu aur namaz ka tareeqa bharosemand alim se seekhein.</li><li>Namaz mein tawajjuh aur khushu paida karne ki koshish karein.</li></ul><div class="note">Namaz ke fiqhi masail mein apne maslak ke mustanad alim se rehnumai lein.</div>`},
+ akhlaq:{title:"Akhlaq",body:`<p>Achha akhlaq insani zindagi ko khoobsurat banata hai. Guftagu aur muamlaat mein narmi, sachai aur adab ka khayal rakhein.</p><ul><li>Walidain aur buzurgon ka adab karein.</li><li>Dusron se narmi se baat karein.</li><li>Jhoot, gheebat aur bad-zabani se bachein.</li><li>Apni ghalti tasleem karne ki aadat dalein.</li></ul>`},
+ ilm:{title:"Ilm",body:`<p>Deeni ilm ko bharosemand ulama aur mustanad kitabon se hasil karein. Jo baat samajh na aaye, uske bare mein sawal karein aur tasdeeq ke baghair aage na phailayein.</p><ul><li>Seekhne ke liye waqt muqarrar karein.</li><li>Ilm ke saath amal ki bhi koshish karein.</li><li>Ikhtilafi masail mein adab aur ehtiyat rakhein.</li></ul>`},
+ yaad:{title:"Yaad-Dihani",body:`<p>Chhoti si yaad-dihani: apne din mein Allah ko yaad karne, achhe akhlaq apnane aur kisi ke saath khair ka muamla karne ki koshish karein.</p><div class="note">Deeni paigham aur hawale publish karne se pehle unki tasdeeq zaroor karein.</div>`}
+};
+function openTopic(key){const item=topics[key];if(!item)return;document.getElementById('homeContent').classList.add('hidden');document.getElementById('detailView').classList.remove('hidden');document.getElementById('detailContent').innerHTML='<h2>'+item.title+'</h2>'+item.body;window.scrollTo({top:0,behavior:'smooth'});}
+function showHome(){document.getElementById('detailView').classList.add('hidden');document.getElementById('homeContent').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
+function filterTopics(){const q=document.getElementById('topicSearch').value.trim().toLowerCase();let count=0;document.querySelectorAll('.topic-card').forEach(card=>{const match=card.dataset.title.includes(q)||card.innerText.toLowerCase().includes(q);card.classList.toggle('hidden',!match);if(match)count++;});document.getElementById('noResults').classList.toggle('hidden',count!==0);}
+</script>
+</body>
+</html>
